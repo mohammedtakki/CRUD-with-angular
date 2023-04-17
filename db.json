@@ -1,0 +1,25 @@
+{
+  "task": [
+    {
+      "nom": "Tache design",
+      "priorite": "Faible",
+      "Etat": "Terminée",
+      "date": "2023-03-24",
+      "id": 1
+    },
+    {
+      "nom": "Tache Front",
+      "priorite": "Moyen",
+      "Etat": "En Cours",
+      "date": "2022-12-10",
+      "id": 2
+    },
+    {
+      "nom": "Tache Back",
+      "priorite": "Elevée",
+      "Etat": "En Retard",
+      "date": "2023-03-23",
+      "id": 3
+    }
+  ]
+}

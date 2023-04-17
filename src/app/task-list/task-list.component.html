@@ -1,0 +1,55 @@
+
+
+<div class="container">
+<div class="my-3">
+  <h1 style="color:whitesmoke;text-align: center;">LIST OF TASK </h1>
+</div>
+<div style="display: flex;">
+        <input style="margin-right: 5px; max-width: 18%;"  type="text" class="form-control" placeholder="ADD TASK" aria-describedby="button-addon2" [(ngModel)]="myTASKS.nom">
+        <input style="margin-right: 5px; max-width: 18%;" type="text"   class="form-control" placeholder="ADD PRIORITE" aria-describedby="button-addon2" [(ngModel)]="myTASKS.priorite" > 
+        <input style="margin-right: 5px; max-width: 18%;"  type="text" class="form-control" placeholder="ADD ETAT" aria-describedby="button-addon2" [(ngModel)]="myTASKS.Etat">
+        <input style="margin-right: 5px; max-width: 18%;"  type="text" class="form-control" placeholder="ADD DATE" aria-describedby="button-addon2" [(ngModel)]="myTASKS.date">
+        <button style="margin-right: 4px;" class="btn btn-success" type="button" id="button-addon2" (click)="saveTask()"  > <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+        <button class="my-2 btn btn-success" (click)="updateTask()" *ngIf="editTask"><i class="fa fa-send"></i> update
+        </button>
+    </div> 
+<table class="table table-hover my-3">
+    
+    <thead >
+      <tr>
+        <th scope="col">Tâche</th>
+        <th scope="col">Priorité</th>
+        <th scope="col">Etat</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody  >
+        <div *ngIf="task.length === 0">
+            <p style="text-align: center;">Aucune tâche n'a été trouvée.</p>
+          </div>
+        
+        <tr *ngFor="let item of task"  >
+            
+            <td>{{item.nom}}</td>
+            <td>{{item.priorite}}</td>
+            <td [ngClass]="{'red':item.Etat == 'En Retard', 'green':item.Etat == 'Terminée','orange':item.Etat == 'En Cours'}" >{{item.Etat}}</td>
+            <td >{{item.date | date : 'mediumDate' }}</td>
+            <td>
+                <div style="margin: 4px;" class="btn btn-danger" (click)="supTask(item.id)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </div>
+                    <button class="btn btn-warning" (click)="editTask(item)"><i class="fa fa-pencil" ></i></button>
+            </td>
+            
+        </tr>
+    </tbody>
+
+    </table>
+</div>
+
+
+
+    <!-- __________ -->
+
